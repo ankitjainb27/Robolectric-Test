@@ -145,8 +145,6 @@ public class WelcomeActivityTest {
     @Test
     public void testClickAddButton_withEmptyValue() {
         WelcomeActivity calculator = Robolectric.setupActivity(WelcomeActivity.class);
-
-        // calculator.onCreate(new Bundle());
         calculator.getFirstNumber().setText("");
         calculator.getSecondNumber().setText("");
         calculator.getAddButton().performClick();
