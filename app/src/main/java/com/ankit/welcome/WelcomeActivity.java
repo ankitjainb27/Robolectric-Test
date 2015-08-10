@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class WelcomeActivity extends ActionBarActivity {
@@ -39,6 +40,7 @@ public class WelcomeActivity extends ActionBarActivity {
                 return true;
 
             case R.id.item2:
+                Toast.makeText(this, "Clicked Item 4", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
