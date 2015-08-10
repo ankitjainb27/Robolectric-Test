@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -23,8 +22,16 @@ import static org.robolectric.Shadows.shadowOf;
 
 /**
  * file:///Users/ankitjain/AndroidStudioProjects/Welcome/app/build/reports/tests/debug/classes/com.ankit.welcome.WelcomeActivityTest.html
- *Running test using Terminal - ./gradlew test
+ * Running test using Terminal - ./gradlew test
  */
+/*Assert commands used
+1)assertThat(activity).isNotNull();
+2)assertThat(hello).isEqualTo("Hello world!");
+3)assertThat(shadowOf(activity).getNextStartedActivity()).isEqualTo(expectedIntent);
+4)assertThat(textView.getText().toString()).contains("Hello, Peter!");
+5)assertEquals(LoginActivity.class.getCanonicalName(), intent.getComponent().getClassName());
+6)assertTrue("TextView contains incorrect text", activity.getTitle().toString().equals("Deckard"));
+*/
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
@@ -33,13 +40,13 @@ public class WelcomeActivityTest {
 
     @Before
     public void setup() {
-       // activity = Robolectric.buildActivity(WelcomeActivity.class).create().get();
+        // activity = Robolectric.buildActivity(WelcomeActivity.class).create().get();
         activity = Robolectric.buildActivity(WelcomeActivity.class).get();
     }
 
     @Test
     public void checkActivityNotNull() throws Exception {
-       // assertNotNull("WelcomeActivity is not instantiated", activity);
+        // assertNotNull("WelcomeActivity is not instantiated", activity);
         assertThat(activity).isNotNull();
     }
 
@@ -102,6 +109,7 @@ public class WelcomeActivityTest {
         assertThat(text).isNotNull();
         assertThat(text.getText().toString()).isEqualTo("Welcome");
     }
+
     @Test
     public void testClickAddButton_withPositiveValues() {
         WelcomeActivity calculator = Robolectric.setupActivity(WelcomeActivity.class);
@@ -110,17 +118,17 @@ public class WelcomeActivityTest {
         calculator.getAddButton().performClick();
         assertEquals("Total = 3", calculator.getTotal().getText().toString());
     }
+
     @Test
     public void testClickAddButton_withEmptyValue() {
         WelcomeActivity calculator = Robolectric.setupActivity(WelcomeActivity.class);
 
-       // calculator.onCreate(new Bundle());
+        // calculator.onCreate(new Bundle());
         calculator.getFirstNumber().setText("");
         calculator.getSecondNumber().setText("");
         calculator.getAddButton().performClick();
         assertEquals("Total = 0", calculator.getTotal().getText().toString());
     }
-
 
 
 }
