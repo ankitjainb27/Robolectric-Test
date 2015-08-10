@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -32,13 +33,14 @@ public class WelcomeActivityTest {
 
     @Before
     public void setup() {
-        activity = Robolectric.buildActivity(WelcomeActivity.class)
-                .create().get();
+       // activity = Robolectric.buildActivity(WelcomeActivity.class).create().get();
+        activity = Robolectric.buildActivity(WelcomeActivity.class).get();
     }
 
     @Test
     public void checkActivityNotNull() throws Exception {
-        assertNotNull("WelcomeActivity is not instantiated", activity);
+       // assertNotNull("WelcomeActivity is not instantiated", activity);
+        assertThat(activity).isNotNull();
     }
 
     @Test
@@ -97,6 +99,7 @@ public class WelcomeActivityTest {
         Activity activity = Robolectric.setupActivity(WelcomeActivity.class);
 
         final TextView text = (TextView) activity.findViewById(R.id.text);
+        assertThat(text).isNotNull();
         assertThat(text.getText().toString()).isEqualTo("Welcome");
     }
     @Test
@@ -117,4 +120,7 @@ public class WelcomeActivityTest {
         calculator.getAddButton().performClick();
         assertEquals("Total = 0", calculator.getTotal().getText().toString());
     }
+
+
+
 }
