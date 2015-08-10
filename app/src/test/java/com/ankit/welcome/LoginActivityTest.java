@@ -16,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by ankitjain on 10/08/15.
+ * file:///Users/ankitjain/AndroidStudioProjects/Welcome/app/build/reports/tests/debug/classes/com.ankit.welcome.LoginActivityTest.html
  */
 
 @RunWith(RobolectricGradleTestRunner.class)
