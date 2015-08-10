@@ -71,7 +71,7 @@ public class WelcomeActivityTest {
     @Test
     public void titleIsCorrect() throws Exception {
         WelcomeActivity activity = Robolectric.setupActivity(WelcomeActivity.class);
-        assertTrue("TextView contains incorrect text",activity.getTitle().toString().equals("Deckard"));
+        assertTrue("TextView contains incorrect text", activity.getTitle().toString().equals("Deckard"));
     }
 
     @Test
@@ -99,5 +99,22 @@ public class WelcomeActivityTest {
         final TextView text = (TextView) activity.findViewById(R.id.text);
         assertThat(text.getText().toString()).isEqualTo("Welcome");
     }
+    @Test
+    public void testClickAddButton_withPositiveValues() {
+        WelcomeActivity calculator = Robolectric.setupActivity(WelcomeActivity.class);
+        calculator.getFirstNumber().setText("1");
+        calculator.getSecondNumber().setText("2");
+        calculator.getAddButton().performClick();
+        assertEquals("Total = 3", calculator.getTotal().getText().toString());
+    }
+    @Test
+    public void testClickAddButton_withEmptyValue() {
+        WelcomeActivity calculator = Robolectric.setupActivity(WelcomeActivity.class);
 
+       // calculator.onCreate(new Bundle());
+        calculator.getFirstNumber().setText("");
+        calculator.getSecondNumber().setText("");
+        calculator.getAddButton().performClick();
+        assertEquals("Total = 0", calculator.getTotal().getText().toString());
+    }
 }
