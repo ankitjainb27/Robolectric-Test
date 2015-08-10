@@ -32,6 +32,29 @@ import static org.robolectric.Shadows.shadowOf;
 5)assertEquals(LoginActivity.class.getCanonicalName(), intent.getComponent().getClassName());
 6)assertTrue("TextView contains incorrect text", activity.getTitle().toString().equals("Deckard"));
 */
+/*Other Assert commands
+http://developer.android.com/reference/junit/framework/Assert.html
+http://junit.sourceforge.net/javadoc/org/junit/Assert.html
+
+1)assertEquals(String message, char expected, char actual)
+1.1)assertArrayEquals(char[] expecteds, char[] actuals)
+          Asserts that two char arrays are equal.
+2)assertFalse(String message, boolean condition)
+3)assertNotNull(String message, Object object)
+4)assertNotSame(String message, Object expected, Object actual)
+        Asserts that two objects do not refer to the same object.
+5)assertNull(String message, Object object)
+        Asserts that an object is null.
+6)assertSame(String message, Object expected, Object actual)
+        Asserts that two objects refer to the same object.
+7)assertTrue(String message, boolean condition)
+        Asserts that a condition is true.
+8)fail(String message)
+       Fails a test with the given message.
+9)failNotEquals(String message, Object expected, Object actual)
+10)failNotSame(String message, Object expected, Object actual)
+11)failSame(String message)
+*/
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
